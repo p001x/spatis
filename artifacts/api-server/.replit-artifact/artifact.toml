@@ -1,0 +1,16 @@
+kind = "api"
+previewPath = "/api"
+title = "Rwanda GeoPortal API"
+version = "1.0.0"
+id = "3B4_FFSkEVBkAeYMFRJ2e"
+
+[[services]]
+localPort = 8001
+name = "API Server"
+paths = ["/api"]
+
+[services.development]
+run = "cd /home/runner/workspace/backend && uv run uvicorn main:app --host 0.0.0.0 --port 8001"
+
+[services.env]
+PORT = "8001"

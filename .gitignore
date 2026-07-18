@@ -1,0 +1,53 @@
+
+.c9/
+.cache/
+.classpath
+# compiled output
+/connect.lock
+/coverage
+.cursor/rules/nx-rules.mdc
+# dependencies
+dist
+.DS_Store
+.expo
+.expo-shared
+.github/instructions/nx.instructions.md
+/.idea
+# IDEs and editors
+# IDE - VSCode
+*.launch
+/libpeerconnection.log
+.local/
+# misc
+node_modules
+npm-debug.log
+out-tsc
+.project
+.pythonlibs/
+# Replit
+/.sass-cache
+# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+.settings/
+*.sublime-workspace
+# System Files
+testem.log
+Thumbs.db
+tmp
+*.tsbuildinfo
+/typings
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
+yarn-error.log
+
+# GeoVault & Python ignore rules
+.env
+*service-account*.json
+.venv/
+__pycache__/
+*.pyc
+gee_key.json
+spatis/
+secrets.toml

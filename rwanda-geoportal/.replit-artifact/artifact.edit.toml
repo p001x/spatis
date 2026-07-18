@@ -1,0 +1,13 @@
+kind = "web"
+previewPath = "/"
+title = "Rwanda Environmental GeoPortal"
+version = "1.0.0"
+id = "RwGeoPortal2026Main"
+
+[[services]]
+localPort = 5000
+name = "Streamlit App"
+paths = ["/"]
+
+[services.development]
+run = "cd /home/runner/workspace/rwanda-geoportal && streamlit run app.py --server.port 5000"

@@ -1,0 +1,26 @@
+kind = "web"
+previewPath = "/"
+title = "Rwanda Environmental GeoPortal"
+version = "1.0.0"
+id = "artifacts/geoportal"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 5000
+
+[services.development]
+run = "pnpm --filter @workspace/geoportal run dev"
+
+[services.production]
+build = "pnpm --filter @workspace/geoportal run build"
+run = "static"
+
+[services.env]
+PORT = "5000"
+BASE_PATH = "/"

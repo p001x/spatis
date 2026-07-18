@@ -1,0 +1,88 @@
+# Replit Agent Prompt — GIS / AHP Weighted Overlay App Updates
+
+Copy everything below into the Replit AI Agent chat. It is written so the agent works in small, safe, committed steps and never loses progress if credits run out mid-task.
+
+---
+
+## IMPORTANT WORKING RULES (read first, follow for the entire task)
+
+1. **Work in small, independent steps.** Do not try to do everything in one giant change.
+2. **After completing EACH step below, commit and push to git immediately**, with a clear commit message describing exactly what was done (e.g. `git add . && git commit -m "Add admin password reset" && git push`).
+3. Do not wait until the end to push. If credits run out mid-task, the last pushed commit must already be a working, non-broken state of the app.
+4. Before starting, run the app and confirm it currently works. After each step, run the app again and confirm it still works before moving to the next step.
+5. If a step is large, break it into smaller sub-steps and commit/push after each sub-step.
+6. Tell me clearly, after each push, what was changed and what to test.
+
+---
+
+## STEP 1 — Fix Admin Login / Reset Admin Password
+
+- My current admin password no longer works and I need access restored.
+- Locate where the admin authentication/password is stored (database, config file, environment variable, or hashed in code).
+- Reset it to a new password that I will set, OR add a secure way for me to reset it myself (e.g. a "Forgot password" flow, or a one-time reset script/command I can run).
+- Make sure the new password is stored securely (hashed, not plain text) if it wasn't already.
+- Tell me exactly what the new admin username/password is, or exactly how to set/change it.
+- **Commit and push after this step.**
+
+---
+
+## STEP 2 — Per-Project Analysis Report
+
+- Add a **"Report"** section/button available for every project in the system.
+- The report should summarize the analysis done for that specific project, including:
+  - Project name, date created/analyzed, and description.
+  - The method used (e.g. Weighted Overlay / AHP) and a summary of inputs.
+  - **All maps produced during the analysis**, not just the final result:
+    - Every individual **factor/criteria map** used in the analysis.
+    - The **final combined/output map**.
+  - The AHP pairwise comparison matrix and consistency ratio (if applicable).
+  - The final weight values used for each factor.
+  - A short written summary/interpretation of the results.
+- The report should be viewable in-app and exportable (PDF or similar — ask me which format I prefer if unsure).
+- **Commit and push after this step.**
+
+---
+
+## STEP 3 — Proper Cartographic Elements on Every Map (factor maps AND final map)
+
+Every map shown anywhere in the app, and especially every map included in the report, must include standard "good map" elements:
+- Map **title**
+- **Legend** (with clear labels/classes for values, colors, or symbols)
+- **North arrow**
+- **Scale bar**
+- **Data source / credits** (e.g. data source, coordinate system, date generated)
+- Consistent, readable color scheme per layer
+
+Apply this to:
+- Each individual factor map
+- The final AHP weighted overlay result map
+
+**Commit and push after this step.**
+
+---
+
+## STEP 4 — Interactive AHP Weight Adjustment with Real-Time Map Update
+
+For any project that uses Weighted Overlay / AHP:
+
+1. Show the user the current AHP pairwise comparison values and the resulting calculated weights/scores for each factor, clearly labeled.
+2. Allow the logged-in user to **adjust the weight/score of each factor** through the interface (sliders, input fields, or an editable pairwise comparison matrix — choose whichever fits the existing UI best, or ask me if unsure).
+3. Add a way for the user to **reverse/invert a factor's map data** (i.e. flip suitability so that high becomes low and vice versa), since some criteria are inverse in nature (e.g. distance to hazard vs. distance to resource).
+4. When weights are adjusted or a factor is reversed, **recalculate and update the resulting overlay map and scores in real time** (or as close to real time as performance allows), without requiring a full page reload if possible.
+5. Make sure the AHP consistency ratio is recalculated and shown whenever the pairwise values are changed, so the user knows if their adjusted weights are still consistent.
+6. Save the user's adjusted weights with the project so they persist (don't just keep them in memory and lose them on refresh).
+
+**Commit and push after this step.**
+
+---
+
+## STEP 5 — Final Check
+
+- Confirm all four features (admin password, reports, map cartographic elements, AHP live adjustment) work together without breaking each other.
+- Do one final commit and push labeled clearly as the completed version of this update.
+
+---
+
+### Notes to the agent
+- Inspect the existing codebase structure first before writing new code, and follow the existing patterns/libraries already used in the project (map library, backend framework, database) rather than introducing new ones unless necessary.
+- If something is ambiguous, make a reasonable choice, note the assumption in your response to me, and continue — don't stop and wait unless it would clearly break something.
